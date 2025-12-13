@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لعبة الكوتشينة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .card {
+      margin: 30px auto;
+      width: 150px;
+      height: 220px;
+      background: white;
+      color: black;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #ff9800;
+    }
+
+    button:hover {
+      background: #e68900;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🎴 لعبة الكوتشينة</h1>
+  <p>اضغط الزر علشان تسحب كارت</p>
+
+  <div class="card" id="card">؟</div>
+
+  <button onclick="drawCard()">اسحب كارت</button>
+
+  <script>
+    function drawCard() {
+      const suits = ["♠", "♥", "♦", "♣"];
+      const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+      const suit = suits[Math.floor(Math.random() * suits.length)];
+      const value = values[Math.floor(Math.random() * values.length)];
+
+      const card = document.getElementById("card");
+      card.textContent = value + suit;
+
+      // لون أحمر للقلوب والدايموند
+      if (suit === "♥" || suit === "♦") {
+        card.style.color = "red";
+      } else {
+        card.style.color = "black";
+      }
+    }
+  </script>
+
+</body>
+</html>
